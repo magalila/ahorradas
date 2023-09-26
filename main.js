@@ -1,19 +1,27 @@
-
+//menu
 const paginaPrincipal = document.getElementById("pagina-completa");
 const btnAhorradas = document.getElementById("btn-ahorradas");
 const menu = document.getElementById("menu");
 const menuMobile = document.getElementById("menu-mobile");               
-//balance/opeaciones  
+//balance
 const gananciasTotales = document.getElementById("ganancias-totales");
 const gastosTotales = document.getElementById("gastos-totales");
-const totalesOperables = document.getElementById("totales-operables");  
+const totalesOperables = document.getElementById("totales-operables"); 
 const btnBalance = document.getElementById("btn-balance");
 const misBalances = document.getElementById("mis-balances");
+// filtros
+const btnOcultarFiltros = document.getElementById("btn-ocultar-filtros");
+const tipoFiltro = document.getElementById("tipo-filtro");
+const cambiarFitlros = document.getElementById("cambiar-filtros");
+const miDate = document.querySelector("#mi-date");
+const selectOrdenarPor = document.querySelector("#ordenar-por");
+//<<<<<<<<<<<<<<<<< opeaciones >>>>>>>>>>>>>>>>> 
 const seccionNuevaOperacion = document.getElementById("seccion-nueva-op");
 const btnNuevaOperacion = document.getElementById("btn-nueva-operacion");
 const botonCancelarOperacion = document.getElementById("boton-cancelar-nueva-operacion");
-const botonCancelarEditarOperacion = document.getElementById("boton-cancelar-editar-operacion");
 const botonAgregarOperacion = document.querySelector("#boton-agregar-operacion");
+const botonCancelarEditarOperacion = document.getElementById("boton-cancelar-editar-operacion");
+//carga de datos
 const formularioOperaciones = document.querySelector("#formulario-operaciones");
 const miDecripcion = document.querySelector("#mi-descripcion");
 const miMonto = document.querySelector("#mi-monto");
@@ -24,28 +32,30 @@ const operacionesSinResultados = document.querySelector(".operaciones-sin-result
 const listaNuevasOperaciones = document.getElementById("lista-nuevas-operaciones");
 const seccionlistaNuevasOperaciones = document.querySelector(".listado-operaciones");//ver
 const seccionEditarOperaciones = document.getElementById("seccion-editar-operacion")
-const botonEditarOp = document.querySelector("#boton-edit-op")
-const botonCancelOp = document.querySelector("#boton-cancel-op")
-const botonesEditarOperaciones = document.querySelectorAll(".edit-op")
-const botonesEliminarOperaciones = document.querySelectorAll(".delete-op")
+const btnEditarOp = document.querySelector("#boton-edit-op")
+const btnCancelarOp = document.querySelector("#boton-cancel-op")
+//botones invisibles editar y eliminar
+const btnEditarOperaciones = document.querySelectorAll(".edit-op")
+const btnEliminarOperaciones = document.querySelectorAll(".delete-op")
+//edicion 
 const inputEditDescripcion = document.querySelector("#edit-descripcion")
 const inputEditMonto = document.querySelector("#edit-monto")
 const inputEditTipo = document.querySelector("#edit-tipo-op")
 const selectEditCategoria = document.querySelector("#editar-categorias-op")
 const inputEditFecha = document.querySelector("#edit-fecha")
-//categorias
+//<<<<<<<<<<<<<<< categorias >>>>>>>>>>>>>>>>>>
 const seccionCategorias = document.getElementById("seccion-categorias");
-const listadoDeCategorias = document.getElementById("listado-categorias");
+const listaCategorias = document.getElementById("listado-categorias");
 const seccionEditarCategorias = document.getElementById("seccion-editar-categorias");
 const btnCategorias = document.getElementById("btn-categorias");
 const inputEditarCategoria = document.querySelector("#input-edit-categorias");
-const botonDeleteCategoria = document.querySelectorAll(".eliminar-categorias");
+const btnDeleteCategorias= document.querySelectorAll(".eliminar-categorias");
 const inputSeccionCategoria = document.querySelector("#input-categoria");
 const botonInputSeccionCategoria = document.querySelector("#boton-agregar-categoria");
 const misCategorias = document.querySelector("#mis-categorias");
-const botonCancelarEditarCategoria = document.getElementById("boton-cancelar-editar-categoria");
-const botonConfirmarEditarCategoria = document.getElementById("boton-confirmar-editar-categoria");
-const botonesEliminanCategorias = document.querySelectorAll(".eliminar-categorias");
+const btnCancelarEditarCategoria = document.getElementById("boton-cancelar-editar-categoria");
+const btnConfirmarEditarCategoria= document.getElementById("boton-confirmar-editar-categoria");
+const btnEliminarCategorias = document.querySelectorAll(".eliminar-categorias");
 //reportes
 const btnReportes = document.querySelector("#btn-reportes");
 const sinReportes = document.querySelector("#sin-reportes");
@@ -63,14 +73,6 @@ const categoriaMesMayorGastoMonto = document.getElementById("mes-mayor-gasto-mon
 const reportesResumen = document.querySelector("#reportes-resumen");
 const reportesTotalCategorias = document.querySelector("#reportes-totales-cat");
 const reportesTotalFecha = document.querySelector("#reportes-totales-mes");
-
-// filtros
-const miDate = document.querySelector("#mi-date");
-const btnOcultarFiltros = document.getElementById("btn-ocultar-filtros");
-const cambiarFitlros = document.getElementById("cambiar-filtros");
-const tipoFiltro = document.getElementById("tipo-filtro");
-const selectOrdenarPor = document.querySelector("#ordenar-por");
-
 // btn ahorradas
 btnAhorradas.onclick = () => {
   misBalances.classList.remove("is-hidden");
@@ -88,22 +90,17 @@ menu.onclick = () => {
   menu.classList.toggle("is-active");
   menuMobile.classList.toggle("is-active");
 };
-
-
 //funciones
-
 const modificarClasesBotones = (boton, clase1, clase2) => {
   boton.onclick = () => {
     clase1.classList.add("is-hidden");
     clase2.classList.remove("is-hidden");
   }
 }
-
 const aJSONYSubirAlLStorage = (array, clave) => {
   const aJSON = JSON.stringify(array)
   localStorage.setItem(clave, aJSON)
 }
-
 const guardarDeLStorage = (array, clave) => {
   const nuevoArray = [localStorage.getItem(clave) || "[]"]
   const parseArray = JSON.parse(nuevoArray)
@@ -121,7 +118,6 @@ let categorias = ["Comida", "Servicios", "Salidas", "Educación", "Transporte", 
 let operaciones = []
 
 //>>>>>>>>>>>>>>>>>>>>menu nav>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
 btnCategorias.onclick = () => {
   seccionCategorias.classList.remove("is-hidden");
   seccionEditarCategorias.classList.add("is-hidden");
@@ -132,14 +128,12 @@ btnCategorias.onclick = () => {
 
 modificarClasesBotones(btnNuevaOperacion, misBalances, seccionNuevaOperacion);
 modificarClasesBotones(botonCancelarOperacion, seccionNuevaOperacion, misBalances);
-
 // btn ahorradas
 btnAhorradas.onclick = () => {
   misBalances.classList.remove("is-hidden");
   seccionCategorias.classList.add("is-hidden");
   seccionReportesInsuficientes.classList.add("is-hidden");
 }
-
 // btn reportes
 btnReportes.onclick = () => {
   seccionReportesInsuficientes.classList.remove("is-hidden");
@@ -153,15 +147,9 @@ btnBalance.onclick = () => {
   seccionCategorias.classList.add("is-hidden");
   seccionReportesInsuficientes.classList.add("is-hidden");
 }
-
-
-
 //>>>>>>>>>> categorias>>>>>>>>>>>>>
-
 const subirCategoriasAlLs = (array, clave) => localStorage.getItem(clave) === null && aJSONYSubirAlLStorage(array, clave)
-
 subirCategoriasAlLs(categorias, "categorias")
-
 const pushCategoria = (arr) => {
   arr.push(inputSeccionCategoria.value)
 }
@@ -177,8 +165,6 @@ let nuevasCategorias = []
 guardarDeLStorage(nuevasCategorias, "categorias")
 categorias = nuevasCategorias
 
-
-
 const arrayReduc = (array) => {
   const arrayReducido = array.reduce((acc, arr) => {
     return acc += `<option value="${arr}">${arr}</option>`
@@ -190,7 +176,7 @@ misCategorias.innerHTML = ` <option value="todas" id="categoria-filtro-todas">To
 
 const agregarCategoriasAHTML = () => {
   const categoriasHTML = categorias.reduce((acc, elemento, index) => {
-    return acc + `<div class="columns">
+    return acc + `<div class="columns  is-mobile is-vcentered">
   <div class="column">
   <div class="tag is-primary is-light">${elemento}</div>
   </div>
@@ -199,7 +185,7 @@ const agregarCategoriasAHTML = () => {
   </div>`
   }, "")
 
-  listadoDeCategorias.innerHTML = categoriasHTML   
+  listaCategorias.innerHTML = categoriasHTML   
   editarCategoriasBoton()
   eliminarCategoriasBoton() 
 }
@@ -269,7 +255,7 @@ editarCategoriasBoton()
 eliminarCategoriasBoton()
 agregarCategoriasAHTML()
 
-botonCancelarEditarCategoria.onclick = () => {
+btnCancelarEditarCategoria.onclick = () => {
   seccionEditarCategorias.classList.add("is-hidden");
   seccionCategorias.classList.remove("is-hidden");
   seccionReportesInsuficientes.classList.add("is-hidden");
@@ -321,18 +307,19 @@ const aHTML = (array) => {
     const montoSigno = (elemento) => elemento.tipo === "ganancia" ? `+$` : `-$`
     const montoClase = (elemento) => elemento.tipo === "ganancia" ? "has-text-success" : "has-text-danger"
     const fechas = new Date(elemento.fecha) 
-    return acc += `<div class="columns">
-    <div class="column is-3 has-text-weight-bold has-text-left">${elemento.descripcion}</div>
-    <div class="column is-1 tag is-primary is-light has-text-left mt-3">${elemento.categoria}</div>
-    <div class="column is-4 has-text-grey has-text-right">${fechas.toLocaleDateString()}</div>
-    <div class="column is-2 has-text-weight-bold ${montoClase(elemento)} has-text-right">${montoSigno(elemento)}${elemento.monto}</div>
-    <div class="column is-2">
-    <div class="columns">  
-    <button type="button" id="editar-op-${index}" class="button is-ghost is-small mr-2 mt-2 edit-op">Editar</button> 
-    <button type="button" id="eliminar-op-${index}" class="button is-ghost is-small mr-1 mt-2 delete-op">Eliminar</button>
-    </div>
-    </div>
-    </div>`
+    return acc += 
+    `<div class="columns is-mobile is-vcentered ">
+         <div class="column is-3 has-text-weight-bold has-text-left">${elemento.descripcion}</div>
+         <div class="column is-2 tag is-primary is-light has-text-left mt-3">${elemento.categoria}</div>
+         <div class="column is-2 has-text-grey has-text-left">${fechas.toLocaleDateString()}</div>
+         <div class="column is-2has-text-weight-bold ${montoClase(elemento)} has-text-centered">${montoSigno(elemento)}${elemento.monto}</div>
+         <div class="column is-3">
+           <div class="columns is-mobile is-vcentered ">  
+             <button type="button" id="editar-op-${index}" class="button is-ghost is-small  mt-2 edit-op is-justify-content-left">Editar</button> 
+             <button type="button" id="eliminar-op-${index}" class="button is-ghost is-small  mt-2 delete-op">Eliminar</button>
+           </div>
+         </div>
+     </div>`
   }, "")
   editarCategoriasBoton()
   eliminarCategoriasBoton()
@@ -512,12 +499,12 @@ selectOrdenarPorAHTML()
 
 const eliminarOperacionesBotones = () => {  
 
-  const botonesEliminarOperaciones = document.querySelectorAll(".delete-op")
+  const btnEliminarOperaciones = document.querySelectorAll(".delete-op")
 
-  for(let i = 0; i < botonesEliminarOperaciones.length; i++){    
+  for(let i = 0; i < btnEliminarOperaciones.length; i++){    
 
-    botonesEliminarOperaciones[i].onclick = () => {
-      const idRecortado = botonesEliminarOperaciones[i].id.slice(12)
+    btnEliminarOperaciones[i].onclick = () => {
+      const idRecortado = btnEliminarOperaciones[i].id.slice(12)
       idNumerico = Number (idRecortado)
       const filtrarOperaciones = operaciones.filter((elemento, index) => {
         return index != idNumerico
@@ -541,11 +528,11 @@ const valorFormEditarOperaciones = (id) => {
 }
 
 const formOperacionesAEditar = (id) => {
-  const botonesEditarOperaciones = document.querySelectorAll(".edit-op")
+  const btnEditarOperaciones = document.querySelectorAll(".edit-op")
   seccionEditarOperaciones.classList.remove("is-hidden");
   misBalances.classList.add("is-hidden");
   
-  botonEditarOp.onclick = () => {
+  btnEditarOp.onclick = () => {
     operaciones[id].descripcion = inputEditDescripcion.value
     operaciones[id].monto = inputEditMonto.value
     operaciones[id].tipo = inputEditTipo.value
@@ -561,12 +548,12 @@ const formOperacionesAEditar = (id) => {
 }
 
 const editarOperacionesBoton = () => {
-  const botonesEditarOperaciones = document.querySelectorAll(".edit-op")
+  const btnEditarOperaciones = document.querySelectorAll(".edit-op")
 
-  for (let i = 0; i < botonesEditarOperaciones.length; i++) {
+  for (let i = 0; i < btnEditarOperaciones.length; i++) {
 
-    botonesEditarOperaciones[i].onclick = () => {
-      const idCortado = botonesEditarOperaciones[i].id.slice(10)
+    btnEditarOperaciones[i].onclick = () => {
+      const idCortado = btnEditarOperaciones[i].id.slice(10)
       const idNumerico = Number(idCortado)
       selectEditCategoria.innerHTML = arrayReduc(categorias)
       formOperacionesAEditar(idNumerico)

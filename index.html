@@ -14,96 +14,79 @@
 
 <body>
     <header id="pagina-principal">
-        <nav class="navbar is-link p-2" role="navigation" aria-label="main navigation">
-            <div class="navbar-brand ml-5">
-                <button class="button is-link navbar-item is-size-3" id="btn-ahorradas">
+        <nav class="navbar is-spaced navbar is-link p-2" role="navigation" aria-level="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item is-link is-size-3" id="btn-ahorradas">
+
                     <i class="fas fa-solid fa-chart-line mr-4 is-size-10 has-text-primary" aria-hidden="true"></i>
-                    <h1 class="is-size-2 has-text-weight-semibold">AhorrADAs</h1>
-                </button>
-                <a role="button" id="menu" class="navbar-burger" aria-label="menu" aria-expanded="false"
-                    data-target="navbarBasicExample">
+                    <h1 class="is-size-2 has-text-weight-semibold"> AhorrADAs
+                    </h1>
+                </a>
+                <a role="button" class="navbar-burger " aria-label="menu" aria-expanded="false"
+                    data-target="navbarBasicExample" id="menu">
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                 </a>
             </div>
-            <div class="navbar-menu navbar-end mr-2" id="menu-mobile">
-                <div class="navbar-item">
-                    <div class="buttons">
-                        <button class="button is-link mr-2" id="btn-balance">
-                            <span class="icon-text has-text-white">
-                                <span class="icon">
-                                    <i class="fas fa-solid fa-chart-line mr-2 is-size-5 has-text-primary"
-                                        aria-hidden="true"></i>
-                                </span>
-                                <span class="is-size-5">Balance</span>
-                            </span>
-                        </button>
-                        <button class="button is-link mr-2" id="btn-categorias">
-                            <span class="icon-text has-text-white">
-                                <span class="icon">
-                                    <i class="fa-solid fa-tags mr-2 is-size-5 has-text-primary"></i>
-                                </span>
-                                <span class="is-size-5">Categorías</span>
-                            </span>
-                        </button>
-                        <button class="button is-link mr-2" id="btn-reportes">
-                            <span class="icon-text has-text-white">
-                                <span class="icon">
-                                    <i class="fa-solid fa-chart-pie mr-2 is-size-5 has-text-primary"></i>
-                                </span>
-                                <span class="is-size-5">Reportes</span>
-                            </span>
-                        </button>
-                    </div>
+
+            <div class="navbar-menu" id="menu-mobile">
+                <div class="navbar-end">
+                    <a class="navbar-item is-size-5" id="btn-balance">
+                        <i class="fas fa-solid fa-chart-line mr-2 is-size-5 has-text-primary" aria-hidden="true"></i>
+                        Balance
+                    </a>
+                    <a class="navbar-item is-size-5" id="btn-categorias">
+                        <i class="fa-solid fa-tags mr-2 is-size-5 has-text-primary"></i>
+                        Categorías
+                    </a>
+
+                    <a class="navbar-item is-size-5" id="btn-reportes">
+                        <i class="fa-solid fa-chart-pie mr-2 is-size-5 has-text-primary"></i>
+                        Reportes
+                    </a>
+
                 </div>
-            </div>
             </div>
         </nav>
     </header>
     <main>
-        <section class="section has-background-grey-lighter mt-5" id="mis-balances">
+        <section class="section has-background-grey-lighter mt-5 vista" id="mis-balances">
             <div class="container">
-                <div class="columns has-background-grey-lighter">
-                    <div class="column is-3 is-offset-1">
+
+                <div class="columns has-background-grey-lighter is-multiline">
+                    <div class="column is-3-widescreen is-4-desktop is-12-tablet is-offset-1-widescreen">
                         <!--balance-->
                         <div class="box">
                             <h2 class="is-title is-size-3 mb-6 has-text-weight-bold is-family-code">Balance</h2>
-                            <div class="">
-                                <div class="columns is-centered">
-                                    <div class="column">
-                                        <p class="is-size-5 is-family-code">Ganancias</p>
-                                    </div>
-                                    <div class="column">
-                                        <p class="has-text-success has-text-right is-family-code"
-                                            id="ganancias-totales"></p>
-                                    </div>
+                            <div class="columns is-mobile is-vcentered"> <!--ver-->
+                                <div class="column is-size-5 is-family-code">Ganancias</div>
+                                <div class="column has-text-right has-text-success" id="ganancias-totales">
                                 </div>
-                                <div class="columns is-centered">
-                                    <div class="column">
-                                        <p class="is-size-5 is-family-code">Gastos</p>
-                                    </div>
-                                    <div class="column">
-                                        <p class="has-text-danger has-text-right" id="gastos-totales"></p>
-                                    </div>
+                            </div>
+                            <div class="columns is-mobile is-vcentered">
+                                <div class="column is-size-5 is-family-code">Gastos</div>
+                                <div class="column has-text-right has-text-danger has-text-success" id="gastos-totales">
                                 </div>
-                                <div class="columns is-centered">
-                                    <div class="column">
-                                        <p class="is-size-4 is-family-code">Total</p>
-                                    </div>
-                                    <div class="column">
-                                        <p class="has-text-right has-text-weight-bold" id="totales-operables"></p>
-                                    </div>
+                            </div>
+
+                            <div class="columns is-mobile is-vcentered has-background-warning-light">
+                                <div class="column is-size-5 is-family-code">Total</div>
+                                <div class="column has-text-right  has-text-weight-bold " id="totales-operables">
                                 </div>
                             </div>
                         </div>
                         <!-- filtros-->
                         <div class="box">
-                            <div class="columns is-multiline">
+                            <div class="columns is-mobile is-vcentered">
                                 <div class="column">
                                     <h3 class=" is-size-4 has-text-weight-bold is-family-code">Filtros</h3>
                                 </div>
-                                <div class="column control">
+                                <!-- <div class="column column has-text-right is-family-code">
+                                    <a href="#" id="toggle-filtros">Ocultar filtros</a>
+                                </div>
+                                -->
+                                <div class="column has-text-right">
                                     <button type="button" class="button is-normal has-text-right is-link is-inverted"
                                         id="btn-ocultar-filtros">Ocultar filtros</button>
                                 </div>
@@ -190,16 +173,18 @@
                             <section class="listado-operaciones is-hidden">
                                 <div class="columns has-text-weight-medium is-mobile">
                                     <div class="column is-3 has-text-left is-family-code">Descripción</div>
-                                    <div class="column is-3 pl-0 has-text-left is-family-code">Categoría</div>
-                                    <div class="column is-2 has-text-right is-family-code">Fecha</div>
-                                    <div class="column is-2 has-text-right is-family-code">Monto</div>
+                                    <div class="column is-2 pl-0 has-text-left is-family-code">Categoría</div>
+                                    <div class="column is-1 has-text-right is-family-code">Fecha</div>
+                                    <div class="column is-3 has-text-right is-family-code">Monto</div>
                                     <div class="column is-2 has-text-right is-family-code">Acciones</div>
                                 </div>
-                                <div id="lista-nuevas-operaciones"></div>
+                                <div id="lista-nuevas-operaciones">
+                                </div>
                             </section>
                         </div>
                     </div>
                 </div>
+            </div>
         </section>
         <!-- new operacion-->
         <section class="section mt-5 is-hidden" id="seccion-nueva-op">
@@ -436,9 +421,11 @@
                             <!-- VEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEERRRRRRRRRRRRR-->
                             <section id="reportes-resumen" class="is-hidden">
                                 <h1 class="is-size-2 title is-family-code">Reportes</h1>
-                                <div class="m-5 mt-6 pt-4">
+                                <div class="m-5 mt-6 pt-4 box">
                                     <div class="mb-4 pb-4">
-                                        <h3 class="is-size-4 has-text-weight-medium is-family-code">Resumen</h3>
+                                        <h3
+                                            class="is-size-4 has-text-weight-medium is-family-code has-text-weight-bold">
+                                            Resumen</h3>
                                     </div>
                                     <!--categoria > ganancia-->
                                     <div class="columns is-align-items-center pb-1">
@@ -494,19 +481,21 @@
                             </section>
                             <!-- totales por categorias-->
                             <section id="reportes-totales-cat" class="is-hidden">
-                                <div class="m-5 mt-6 pt-6">
+                                <div class="m-5 mt-6 pt-6 box">
                                     <div class="mb-4 pb-4">
-                                        <h3 class="is-size-4 has-text-weight-medium is-family-code">Totales por
+                                        <h3
+                                            class="is-size-4 has-text-weight-medium is-family-code has-text-weight-bold">
+                                            Totales por
                                             categoría</h3>
                                     </div>
-                                    <div class="columns has-text-weight-medium">
+                                    <div class="columns has-text-weight-medium ">
                                         <div class="column is-3 has-text-left">Categoría</div>
                                         <div class="column is-3 has-text-right">Ganancias</div>
                                         <div class="column is-3 has-text-right">Gastos</div>
                                         <div class="column is-3 has-text-right">Balance</div>
                                     </div>
                                     <div class="columns has-text-weight-medium pt-1 pb-1">
-                                        <div class="column is-3 has-text-left">Comida</div>
+                                        <div class="column is-3 has-text-left">Servicios</div>
                                         <div class="column is-3 has-text-right has-text-success">+$0</div>
                                         <div class="column is-3 has-text-right has-text-danger">-$0</div>
                                         <div class="column is-3 has-text-right">$0</div>
@@ -515,9 +504,11 @@
                             </section>
                             <!--totales por mes-->
                             <section id="reportes-totales-mes" class="is-hidden">
-                                <div class="m-5 mt-6 pt-6">
+                                <div class="m-5 mt-6 pt-6 box">
                                     <div class="mb-4 pb-4">
-                                        <h3 class="is-size-4 has-text-weight-medium is-family-code">Totales por mes</h3>
+                                        <h3
+                                            class="is-size-4 has-text-weight-medium is-family-code has-text-weight-bold">
+                                            Totales por mes</h3>
                                     </div>
                                     <div class="columns has-text-weight-medium">
                                         <div class="column is-3 has-text-left">Mes</div>
@@ -526,7 +517,7 @@
                                         <div class="column is-3 has-text-right">Balance</div>
                                     </div>
                                     <div class="columns has-text-weight-medium pt-1 pb-1">
-                                        <div class="column is-3 has-text-left">11/2021</div>
+                                        <div class="column is-3 has-text-left">09/2023</div>
                                         <div class="column is-3 has-text-right has-text-success">+$0</div>
                                         <div class="column is-3 has-text-right has-text-danger">-$0</div>
                                         <div class="column is-3 has-text-right">$0</div>
@@ -538,4 +529,5 @@
     </main>
     <script src="main.js"></script>
 </body>
+
 </html>
