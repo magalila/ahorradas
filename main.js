@@ -309,11 +309,11 @@ const aHTML = (array) => {
     const fechas = new Date(elemento.fecha) 
     return acc += 
     `<div class="columns is-mobile is-vcentered ">
-         <div class="column is-3 has-text-weight-bold has-text-left">${elemento.descripcion}</div>
+         <div class="column is-3 has-text-left">${elemento.descripcion}</div>
          <div class="column is-2 tag is-primary is-light has-text-left mt-3">${elemento.categoria}</div>
          <div class="column is-2 has-text-grey has-text-left">${fechas.toLocaleDateString()}</div>
-         <div class="column is-2has-text-weight-bold ${montoClase(elemento)} has-text-centered">${montoSigno(elemento)}${elemento.monto}</div>
-         <div class="column is-3">
+         <div class="column is-2 has-text-weight-bold ${montoClase(elemento)} has-text-right">${montoSigno(elemento)}${elemento.monto}</div>
+         <div class="column is-4">
            <div class="columns is-mobile is-vcentered ">  
              <button type="button" id="editar-op-${index}" class="button is-ghost is-small  mt-2 edit-op is-justify-content-left">Editar</button> 
              <button type="button" id="eliminar-op-${index}" class="button is-ghost is-small  mt-2 delete-op">Eliminar</button>
